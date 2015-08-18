@@ -1,0 +1,32 @@
+From petr at madnetwork.org  Mon Mar 30 17:52:21 2009
+From: petr at madnetwork.org (Petr Man)
+Date: Mon, 30 Mar 2009 17:52:21 +0200
+Subject: [Mutt-win32-dev] Feature request
+Message-ID: <5eedb8e50903300852i4b186889o4605460e56e4d7ea@mail.gmail.com>
+
+Hello,
+I have found today this fresh port of mutt for win32 and I am really
+happy about it. One more of my favorite unix tools for windows. But I
+have one feature request and one encoding problem. Is it possible to
+make mutt run in the windows console instead of its own window? The
+second problem I have is with fonts. I would like to use DejaVu Sans
+Mono. Unfortunately, the line drawing characters in the tree message
+view are broken. I tried several other fonts and all of them have the
+same problem, except one - "Terminal". I have attached 2 screenshots
+to this message to illustrate the problem.
+Petr
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: font-terminal.png
+Type: image/png
+Size: 53185 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/mutt-win32-dev/attachments/20090330/2addc668/attachment.png>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: font-dejavu.png
+Type: image/png
+Size: 63422 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/mutt-win32-dev/attachments/20090330/2addc668/attachment-0001.png>
+

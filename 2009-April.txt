@@ -1,0 +1,189 @@
+From splafroe at users.berlios.de  Thu Apr  2 12:25:39 2009
+From: splafroe at users.berlios.de (splafroe)
+Date: Thu, 2 Apr 2009 13:25:39 +0300
+Subject: [Mutt-win32-dev] Feature request
+Message-ID: <7dcee920904020325x4fea9e15t37d8b89ec41f9bd9@mail.gmail.com>
+
+Hello Petr,
+
+> I have found today this fresh port of mutt for win32 and I am really
+> happy about it. One more of my favorite unix tools for windows. But I
+> have one feature request and one encoding problem. Is it possible to
+> make mutt run in the windows console instead of its own window?
+
+It is possible if you compile mutt-win32 with pdcurses and make some
+modification to the code.
+
+> The
+> second problem I have is with fonts. I would like to use DejaVu Sans
+> Mono. Unfortunately, the line drawing characters in the tree message
+> view are broken. I tried several other fonts and all of them have the
+> same problem, except one - "Terminal". I have attached 2 screenshots
+> to this message to illustrate the problem.
+
+It is known problem, but currently I have no sollution. Workaround:
+set ascii_chars
+
+WBR,
+
+
+From splafroe at users.berlios.de  Thu Apr  2 12:30:36 2009
+From: splafroe at users.berlios.de (splafroe)
+Date: Thu, 2 Apr 2009 13:30:36 +0300
+Subject: [Mutt-win32-dev] Feature request
+Message-ID: <7dcee920904020330n7f7f41c2v38833476d604e971@mail.gmail.com>
+
+Hello Petr,
+
+> Is it possible to
+> make mutt run in the windows console instead of its own window?
+
+Why you need such feature?
+
+WBR,
+
+
+From petr at madnetwork.org  Thu Apr  2 19:43:08 2009
+From: petr at madnetwork.org (Petr Man)
+Date: Thu, 2 Apr 2009 19:43:08 +0200
+Subject: [Mutt-win32-dev] Fwd: Feature request
+In-Reply-To: <5eedb8e50904021041x43486a95x927eb1f712e68c93@mail.gmail.com>
+References: <7dcee920904020330n7f7f41c2v38833476d604e971@mail.gmail.com> 
+	<5eedb8e50904021041x43486a95x927eb1f712e68c93@mail.gmail.com>
+Message-ID: <5eedb8e50904021043p2a134049udb1e9dc1de5982c0@mail.gmail.com>
+
+I have accidentally sent the message only to the developer and not to
+the list. Forwarding.
+Petr
+
+
+---------- Forwarded message ----------
+From: Petr Man <petr at madnetwork.org>
+Date: Thu, Apr 2, 2009 at 19:41
+Subject: Re: Feature request
+To: splafroe <splafroe at users.berlios.de>
+
+
+Hi WBR,
+I personally prefer to run the console programs in terminal, under
+windows http://sourceforge.net/projects/console/. It has the
+advantage, that it actually remembers typeface, font size, encoding
+and window size, which the mutt window currently doesn't.
+I am more concerned about the encoding feature. The "set ascii_chars"
+workaround "fixed" it, but I am sure there must be a better option. I
+am pretty sure, that the fonts I have tried have all the utf
+characters normally used to create ascii art/boxes. I have had very
+similar problem with putty when I had wrong encoding selected.
+Could you please note in the README file, that the usual *nix
+variables like $EDITOR have to be set in order for mutt to work
+properly? I tried it with console vim, that didn't work, the process
+was spawned, but went into deadlock right after that. Gvim is fine.
+Getting message sending working might be a cool feature too :). There
+is a msmtp binary for windows available. I also compiled a pgpewrap
+with mingw and can make this binary available, so that we can use pgp
+(one day).
+Petr
+
+On Thu, Apr 2, 2009 at 12:30, splafroe <splafroe at users.berlios.de> wrote:
+> Hello Petr,
+>
+>> Is it possible to
+>> make mutt run in the windows console instead of its own window?
+>
+> Why you need such feature?
+>
+> WBR,
+>
+
+
+From splafroe at users.berlios.de  Thu Apr  2 20:50:47 2009
+From: splafroe at users.berlios.de (splafroe)
+Date: Thu, 2 Apr 2009 21:50:47 +0300
+Subject: [Mutt-win32-dev] Fwd: Feature request
+In-Reply-To: <5eedb8e50904021043p2a134049udb1e9dc1de5982c0@mail.gmail.com>
+References: <7dcee920904020330n7f7f41c2v38833476d604e971@mail.gmail.com>
+	<5eedb8e50904021041x43486a95x927eb1f712e68c93@mail.gmail.com>
+	<5eedb8e50904021043p2a134049udb1e9dc1de5982c0@mail.gmail.com>
+Message-ID: <7dcee920904021150q57bf1cedqa1550e0c58f3c586@mail.gmail.com>
+
+Hi Petr,
+
+> I personally prefer to run the console programs in terminal, under
+> windows http://sourceforge.net/projects/console/.
+
+It is possible when mutt-win32 is compiled with not modified pdcurses.
+
+> It has the
+> advantage, that it actually remembers typeface, font size, encoding
+> and window size, which the mutt window currently doesn't.
+
+I am planing to add 'save settings' feature ASAP.
+
+> I am more concerned about the encoding feature. The "set ascii_chars"
+> workaround "fixed" it, but I am sure there must be a better option. I
+> am pretty sure, that the fonts I have tried have all the utf
+> characters normally used to create ascii art/boxes. I have had very
+> similar problem with putty when I had wrong encoding selected.
+
+It will be fixed but i don't know when.
+
+> Could you please note in the README file, that the usual *nix
+> variables like $EDITOR have to be set in order for mutt to work
+> properly?
+
+Ok.
+
+> I tried it with console vim, that didn't work, the process
+> was spawned, but went into deadlock right after that.
+
+I will think what we have to do with this.
+
+> Getting message sending working might be a cool feature too :).
+
+You can send mail using smtp_url:
+"smtp_url = smtp://username at hostname:port"
+
+> There is a msmtp binary for windows available.
+
+It will not work right now %(
+
+> I also compiled a pgpewrap
+> with mingw and can make this binary available, so that we can use pgp
+> (one day).
+
+Were there any problems when you tried to compile and use pgpewrap
+with mutt-win32?
+
+FYI: you can use GnuPG right now. Currently I'm using mutt-win32 with
+imap and smtp and tried with pop3. Please look at .mutt/muttrc file
+from distribution for details.
+
+
+From splafroe at users.berlios.de  Wed Apr  8 22:32:33 2009
+From: splafroe at users.berlios.de (splafroe)
+Date: Wed, 8 Apr 2009 23:32:33 +0300
+Subject: [Mutt-win32-dev] Fwd: Feature request
+In-Reply-To: <5eedb8e50904021248l1b7d9f3ch3045d756e4101b66@mail.gmail.com>
+References: <7dcee920904020330n7f7f41c2v38833476d604e971@mail.gmail.com>
+	<5eedb8e50904021041x43486a95x927eb1f712e68c93@mail.gmail.com>
+	<5eedb8e50904021043p2a134049udb1e9dc1de5982c0@mail.gmail.com>
+	<7dcee920904021150q57bf1cedqa1550e0c58f3c586@mail.gmail.com>
+	<5eedb8e50904021248l1b7d9f3ch3045d756e4101b66@mail.gmail.com>
+Message-ID: <7dcee920904081332w672ccd9dxd4ef9d0233bd90f1@mail.gmail.com>
+
+Hello Petr,
+
+ftp://ftp.berlios.de/pub/mutt-win32/test/2009.04.08/mutt_console.zip -
+compiled as console application with pdcurses and can be used with
+http://sourceforge.net/projects/console/. only 16 colors.
+
+ftp://ftp.berlios.de/pub/mutt-win32/test/2009.04.08/mutt_gui.zip - gui
+version. It now remember font, font size and charset.
+
+Common changes: synced with dev.mutt.org up to
+http://dev.mutt.org/hg/mutt/rev/667b0006b586
+Console programs (vim,..) invoked from mutt should work without problems.
+
+Please try.
+
+
